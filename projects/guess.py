@@ -23,14 +23,14 @@ def play_game():
     print(f'Congratulations!. You guessed the number in {count_attempts} attempts.')
 
     user_decision = input('Do you want to play again? (yes/no):')
-
     user_decision = user_decision.strip().lower()
+    return user_decision
 
-    if user_decision == 'yes':
-        play_game()
-    elif user_decision == 'no':
-        print('Thanks for playing')
+user_decision = 'yes'
+print(user_decision)
 
+while user_decision == 'yes':
+    user_decision = play_game()
 
-
-play_game()
+print('Thanks for playing')
+print(user_decision)
