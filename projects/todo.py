@@ -1,4 +1,9 @@
-tasks = []
+tasks = [ 
+     'learn python',
+    'practice django',
+    'build a project',
+]
+
 
 
 def add_task():
@@ -8,12 +13,20 @@ def add_task():
         user_task = user_task.strip().lower()
         if user_task != 'done':
             tasks.append(user_task)
+
+def view_tasks():
+    print('Your tasks: ')
+    for index,task in enumerate(tasks,1):
+        print(f'{index}. {task}')
+
+def delete_tasks():
+    view_tasks()
+    user_input = int(input('Enter the task number to delete:'))
+    user_input = user_input-1
+    del tasks[user_input]
+    print('Task deleted successfully!')
+    view_tasks()
+
      
-
-
-add_task()  
-
-print('Your tasks: ')
-for index,task in enumerate(tasks,1):
-    print(f'{index}. {task}')
+delete_tasks()
 
