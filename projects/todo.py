@@ -45,8 +45,12 @@ def app_menu():
             delete_tasks()
         elif choice == 4:
             print('Thanks for using the To-Do List App!')
-            return
+            return True
+        
+        return False
 
-
+while True:
+   if app_menu():
+       break
 
 
