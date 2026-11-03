@@ -1,8 +1,7 @@
 tasks = [ 
-     'learn python',
-    'practice django',
-    'build a project',
+   
 ]
+print(len(tasks))
 
 
 
@@ -21,11 +20,18 @@ def view_tasks():
     
 
 def delete_tasks():
+    if not tasks:
+        print('No tasks available!')
+        return
     view_tasks()
     user_input = int(input('Enter the task number to delete:'))
     user_input = user_input-1
-    del tasks[user_input]
-    print('Task deleted successfully!')
+    if user_input >= 0 and user_input < len(tasks):
+        del tasks[user_input]
+        print('Task deleted successfully!')
+
+    else:
+        print('Invalid task number')
 
 
 
