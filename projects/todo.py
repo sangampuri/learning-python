@@ -1,7 +1,12 @@
-tasks = [ 
-   
-]
-print(len(tasks))
+def load_tasks():
+    with open('D:\\sangam_codes\\Python\\projects\\tasks.txt','r',) as file:
+        tasks_list = file.read()
+        tasks_list = tasks_list.split()
+        for task in tasks_list:
+            tasks.append(task)
+
+tasks = [ ]
+load_tasks()
 
 
 
@@ -12,6 +17,7 @@ def add_task():
         user_task = user_task.strip().lower()
         if user_task != 'done':
             tasks.append(user_task)
+    save_tasks()
 
 def view_tasks():
     print('Your tasks: ')
@@ -29,6 +35,7 @@ def delete_tasks():
     if user_input >= 0 and user_input < len(tasks):
         del tasks[user_input]
         print('Task deleted successfully!')
+        save_tasks()
 
     else:
         print('Invalid task number')
@@ -54,8 +61,20 @@ def app_menu():
         
         return False
 
+def save_tasks():
+    with open('D:\\sangam_codes\\Python\\projects\\tasks.txt','w') as file:
+        for task in tasks:
+            file.write(task+'\n')
+
+
+
+
+
+
 while True:
+   
    if app_menu():
+     
        break
 
 
