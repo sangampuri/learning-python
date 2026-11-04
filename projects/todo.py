@@ -48,6 +48,7 @@ def app_menu():
         print('2. View Tasks')
         print('3. Delete Task')
         print('4. Exit')
+        print('5. Search')
         choice = int(input('Enter your choice by number: '))
         if choice == 1:
             add_task()
@@ -55,10 +56,13 @@ def app_menu():
             view_tasks()
         elif choice == 3:
             delete_tasks()
+        elif choice == 5:
+            search_tasks()
+        
         elif choice == 4:
             print('Thanks for using the To-Do List App!')
             return True
-        
+
         return False
 
 def save_tasks():
@@ -66,13 +70,24 @@ def save_tasks():
         for task in tasks:
             file.write(task+'\n')
 
+def search_tasks():
+    keyword = input('Enter a keyword: ')
+    keyword = keyword.strip().lower()
+    found = False
+    for task in tasks:
+        if keyword in task:
+            found = True
+            print(task)
+
+    if not found:
+        print('Task not found')
 
 
 
 
 
 while True:
-   
+    
    if app_menu():
      
        break
